@@ -7,3 +7,4 @@ tmux-themepack
 nord-tmux
 .zsh_history
 .zsh_profile_c
+.config/lazygit/state.yml
