@@ -1,14 +1,5 @@
 return {
   {
-    "kdheepak/lazygit.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      vim.keymap.set("n", "<leader>gs", "<cmd>LazyGit<cr>")
-    end,
-  },
-  {
     "akinsho/git-conflict.nvim",
     version = "*",
     config = function()
