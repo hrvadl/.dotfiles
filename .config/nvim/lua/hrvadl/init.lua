@@ -1,0 +1,5 @@
+require("hrvadl.remap")
+require("hrvadl.json5")
+require("hrvadl.editor")
+require("hrvadl.lazy")
+require("lazy").setup("hrvadl.plugins")
