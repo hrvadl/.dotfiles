@@ -5,7 +5,7 @@
 - ripgrep
 - delta(pager for git)
 - lazygit
-- Groove LSP
+- Groovy LSP
 
 ## What it can?
 
