@@ -1,0 +1,9 @@
+.config/k9s/clusters
+k9s.log
+tmux-resurrect
+tmux-continuum
+vim-tmux-navigator
+tmux-themepack
+nord-tmux
+.zsh_history
+.zsh_profile_c

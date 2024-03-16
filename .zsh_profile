@@ -1,0 +1,5 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
+export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
