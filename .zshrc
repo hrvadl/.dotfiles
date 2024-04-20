@@ -2,8 +2,17 @@ source $HOME/.zsh_profile
 source $HOME/.zsh_profile_c
 source $HOME/.zsh_aliases
 # autoload bashcompinit && bashcompinit
-# autoload -Uz compinit
-# compinit
+# if type brew &>/dev/null
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+autoload -U compinit
+compinit
 # complete -C '/usr/local/bin/aws_completer' aws
 # source <(kubectl completion zsh)
 
@@ -85,6 +94,7 @@ plugins=(
     docker
     kubectl
     kube-ps1
+    helm
 
     golang
     aws
