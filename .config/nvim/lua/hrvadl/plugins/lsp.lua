@@ -97,22 +97,21 @@ return {
 			require("mason-null-ls").setup({
 				ensure_installed = {
 					-- Groovy
-					"npm-groovy-lint",
+					-- "npm-groovy-lint",
 					-- Lua
 					"formatting.stylua",
 					-- SHELL
 					-- formatting.shellharden,
 					-- JS
-					"formatting.prettier",
+					"prettierd",
 					-- CSS
-					"stylelint",
+					-- "stylelint",
 					-- GO
 					"staticcheck",
 					"golines",
 					"gofumpt",
 					"goimports-reviser",
 					"gci",
-					"gomodifytags",
 					-- diagnostics.revive,
 					-- C
 					"clang-format",

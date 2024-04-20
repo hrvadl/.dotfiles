@@ -6,21 +6,18 @@ return {
 		null_ls.setup({
 			sources = {
 				-- Groovy
-				null_ls.builtins.diagnostics.npm_groovy_lint,
+				-- null_ls.builtins.diagnostics.npm_groovy_lint,
 				-- null_ls.builtins.formatting.npm_groovy_lint,
 				-- Lua
 				null_ls.builtins.formatting.stylua,
 				-- JS
-				null_ls.builtins.formatting.prettier,
-				-- CSS
-				null_ls.builtins.diagnostics.stylelint,
-				null_ls.builtins.formatting.stylelint,
+				null_ls.builtins.formatting.prettierd,
 				-- GO
 				null_ls.builtins.diagnostics.staticcheck,
 				null_ls.builtins.formatting.golines,
 				null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.formatting.goimports_reviser,
-				null_ls.builtins.code_actions.gomodifytags,
+				--null_ls.builtins.code_actions.gomodifytags,
 				-- null_ls.builtins.diagnostics.revive,
 			},
 			on_attach = function(client, bufnr)
