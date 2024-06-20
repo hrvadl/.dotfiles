@@ -19,6 +19,10 @@ return {
 				null_ls.builtins.formatting.goimports_reviser,
 				--null_ls.builtins.code_actions.gomodifytags,
 				-- null_ls.builtins.diagnostics.revive,
+				-- PROTO
+				-- null_ls.builtins.diagnostics.buf,
+				null_ls.builtins.formatting.buf,
+				null_ls.builtins.diagnostics.protolint,
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then

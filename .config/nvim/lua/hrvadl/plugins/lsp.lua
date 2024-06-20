@@ -76,6 +76,8 @@ return {
 					-- GO
 					"gopls",
 					"golangci_lint_ls",
+					-- PROTO
+					"bufls",
 				},
 				handlers = {
 					lsp_zero.default_setup,
@@ -90,6 +92,9 @@ return {
 				settings = {
 					gopls = {
 						gofumpt = true,
+						analyses = {
+							loopclosure = false,
+						},
 					},
 				},
 			})
@@ -114,8 +119,11 @@ return {
 					"gci",
 					-- diagnostics.revive,
 					-- C
-					"clang-format",
-					"clang-d",
+					-- "clang-format",
+					-- "clang-d",
+					-- PROTO
+					"buf",
+					"protolint",
 				},
 				automatic_installation = false,
 			})
