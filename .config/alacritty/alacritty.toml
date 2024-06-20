@@ -17,4 +17,4 @@ normal = { family ="JetbrainsMono Nerd Font Mono", style="Light" }
 bold = { family ="JetbrainsMono Nerd Font Mono", style="Bold" }
 italic = { family ="JetbrainsMono Nerd Font Mono", style="Light" }
 bold_italic = { family ="JetbrainsMono Nerd Font Mono", style="Bold Italic" }
-size =15
+size = 14

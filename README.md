@@ -2,6 +2,7 @@
 
 ## Prerequisites
 
+- [cspell](https://cspell.org/) and [golang](https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/golang) with [ukrainian](https://github.com/streetsidesoftware/cspell-dicts/tree/main/dictionaries/uk_UA) dictionaries
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [delta](https://github.com/dandavison/delta)
 - [lazygit](https://github.com/jesseduffield/lazygit)
