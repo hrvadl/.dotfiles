@@ -138,3 +138,10 @@ source $ZSH/oh-my-zsh.sh
 set clipboard^=unnamed,unnamedplus
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

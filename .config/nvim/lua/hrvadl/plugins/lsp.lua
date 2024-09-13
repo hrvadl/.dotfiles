@@ -13,6 +13,7 @@ return {
 			lsp_zero.extend_lspconfig()
 
 			vim.cmd([[autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy]])
+			vim.cmd([[autocmd BufRead,BufNewFile *.tf set filetype=hcl]])
 
 			lsp_zero.on_attach(function(client, bufnr)
 				lsp_zero.default_keymaps({ buffer = bufnr })
@@ -53,6 +54,34 @@ return {
 				end, {})
 			end)
 
+			local function custom_rename_handler(err, result, ctx, config)
+				if err then
+					vim.notify("Rename failed: " .. err.message, vim.log.levels.ERROR)
+					return
+				end
+
+				local client = vim.lsp.get_client_by_id(ctx.client_id)
+				vim.lsp.util.apply_workspace_edit(result, client.offset_encoding)
+
+				-- Autosave and close affected buffers
+				for _, change in ipairs(result.changes or {}) do
+					for uri, edits in pairs(change) do
+						local bufnr = vim.uri_to_bufnr(uri)
+						if vim.api.nvim_buf_is_loaded(bufnr) then
+							vim.api.nvim_buf_call(bufnr, function()
+								vim.cmd("write")
+								vim.cmd("bdelete")
+							end)
+						end
+					end
+				end
+
+				vim.notify("Rename successful", vim.log.levels.INFO)
+			end
+
+			-- Override the default rename handler
+			vim.lsp.handlers["textDocument/rename"] = vim.lsp.with(custom_rename_handler, {})
+
 			local signs = {
 				Error = "",
 				Warn = "",
@@ -84,11 +113,34 @@ return {
 				},
 			})
 
-			require("lspconfig").groovyls.setup({
+			local lspconfig = require("lspconfig")
+			local configs = require("lspconfig/configs")
+
+			if not configs.golangcilsp then
+				configs.golangcilsp = {
+					default_config = {
+						cmd = { "golangci-lint-langserver" },
+						root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
+						init_options = {
+							command = {
+								"golangci-lint",
+								"run",
+								"--fast",
+								"--issues-exit-code=1",
+							},
+						},
+					},
+				}
+			end
+			lspconfig.golangci_lint_ls.setup({
+				filetypes = { "go", "gomod" },
+			})
+
+			lspconfig.groovyls.setup({
 				cmd = { "java", "-jar", "/Users/vadymhrashchenko/groovy/groovy-language-server-all.jar" },
 			})
 
-			require("lspconfig").gopls.setup({
+			lspconfig.gopls.setup({
 				settings = {
 					gopls = {
 						gofumpt = true,
@@ -112,11 +164,9 @@ return {
 					-- CSS
 					-- "stylelint",
 					-- GO
-					"staticcheck",
 					"golines",
 					"gofumpt",
 					"goimports-reviser",
-					"gci",
 					-- diagnostics.revive,
 					-- C
 					-- "clang-format",
