@@ -1,5 +1,4 @@
 source $HOME/.zsh_profile
-source $HOME/.zsh_profile_c
 source $HOME/.zsh_aliases
 # autoload bashcompinit && bashcompinit
 # if type brew &>/dev/null
@@ -16,11 +15,9 @@ compinit
 # complete -C '/usr/local/bin/aws_completer' aws
 # source <(kubectl completion zsh)
 
+export ZSH="$HOME/.oh-my-zsh"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Library/Python/3.9/bin:$GOBIN:$HOME/local/bin:/usr/local/include:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.config/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -145,3 +142,8 @@ if [ -f '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/path.zsh.inc' ]; the
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vadymhrashchenko/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
