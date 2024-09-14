@@ -12,3 +12,4 @@ nord-tmux
 .config/colima/_lima
 .config/colima/ssh_config
 nvm
+gcloud

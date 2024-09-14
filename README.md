@@ -11,7 +11,7 @@
 - [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - [alacritty](https://github.com/alacritty/alacritty)
 - [starship](https://github.com/starship/starship)
-- [yabai](https://github.com/koekeishiya/yabai)
+- [aerospace](https://github.com/nikitabobko/AeroSpace)
 - [htop](https://github.com/htop-dev/htop)
 - [skhd](https://github.com/koekeishiya/skhd)
 - [k9s](https://github.com/derailed/k9s)
