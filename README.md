@@ -5,7 +5,6 @@
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [delta](https://github.com/dandavison/delta)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-- [Groovy LSP](https://github.com/GroovyLanguageServer/groovy-language-server)
 - [nvim](https://github.com/neovim/neovim)
 - [tmux](https://github.com/tmux/tmux)
 - [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
@@ -13,7 +12,6 @@
 - [starship](https://github.com/starship/starship)
 - [aerospace](https://github.com/nikitabobko/AeroSpace)
 - [htop](https://github.com/htop-dev/htop)
-- [skhd](https://github.com/koekeishiya/skhd)
 - [k9s](https://github.com/derailed/k9s)
 
 <img width="1728" alt="image" src="https://github.com/hrvadl/.dotfiles/assets/93580374/3285bfa0-a8c6-4232-b27b-dc68db93a23d">
