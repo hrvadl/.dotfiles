@@ -95,6 +95,7 @@ plugins=(
 
     golang
     aws
+    terraform
 
     zsh-syntax-highlighting
 )
