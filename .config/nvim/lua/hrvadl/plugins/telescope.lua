@@ -12,6 +12,7 @@ return {
         "FileType",
         { pattern = "TelescopeResults", command = [[setlocal nofoldenable]] }
       )
+      vim.keymap.set("n", "<leader>s", "<cmd>Telescope spell_suggest<cr>")
       vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>")
       vim.keymap.set("n", "<leader>ff", function()
         builtin.find_files({
