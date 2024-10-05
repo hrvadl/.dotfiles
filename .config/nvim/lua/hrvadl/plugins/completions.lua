@@ -28,7 +28,6 @@ return {
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			local c = require("nord.colors").palette
-			local bg = require("nord.colors").default_bg
 
 			vim.api.nvim_set_hl(0, "CmpNormal", { bg = c.polar_night.bright })
 			vim.api.nvim_set_hl(0, "CmpCursorLine", { bg = c.polar_night.light })
