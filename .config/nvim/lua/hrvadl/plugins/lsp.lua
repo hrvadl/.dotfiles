@@ -102,7 +102,7 @@ return {
           -- Lua
           "lua_ls",
           -- JS/HTML/CSS
-          "stylelint_lsp",
+          -- "stylelint_lsp",
           -- GO
           "gopls",
           "golangci_lint_ls",
@@ -156,6 +156,7 @@ return {
           -- SHELL
           -- formatting.shellharden,
           -- JS
+          "eslint_d",
           "prettierd",
           -- CSS
           -- "stylelint",
