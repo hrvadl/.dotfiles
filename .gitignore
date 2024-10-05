@@ -13,3 +13,5 @@ nord-tmux
 .config/colima/ssh_config
 nvm
 gcloud
+sanity
+ngrok
