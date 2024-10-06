@@ -9,8 +9,7 @@ return {
 
 		configs.setup({
 			ensure_installed = { "lua", "javascript", "html", "css", "typescript", "go", "yaml", "hcl" },
-			sync_install = false,
-			-- disable = { "yaml", "yml" },
+			sync_install = true,
 			highlight = { enable = true },
 			indent = { enable = true },
 		})

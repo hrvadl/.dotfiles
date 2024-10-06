@@ -14,10 +14,8 @@ return {
 				null_ls.builtins.formatting.golines,
 				null_ls.builtins.formatting.gofumpt,
 				null_ls.builtins.formatting.goimports,
-				--null_ls.builtins.code_actions.gomodifytags,
-				-- null_ls.builtins.diagnostics.revive,
+				null_ls.builtins.diagnostics.golangci_lint,
 				-- PROTO
-				-- null_ls.builtins.diagnostics.buf,
 				null_ls.builtins.formatting.buf,
 				null_ls.builtins.diagnostics.protolint,
 			},
