@@ -14,6 +14,8 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<cr>", { noremap = true })
+			vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { noremap = true })
+			vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { noremap = true })
 		end,
 	},
 }
