@@ -61,26 +61,54 @@ return {
         end
 
         local client = vim.lsp.get_client_by_id(ctx.client_id)
+
+        -- Track modified buffers
+        local modified_buffers = {}
+
+        -- Get current buffer
+        local current_bufnr = vim.api.nvim_get_current_buf()
+
+        -- Handle both types of LSP responses
+        if result.documentChanges then
+          -- Handle documentChanges (preferred)
+          for _, change in ipairs(result.documentChanges) do
+            if change.textDocument then
+              local uri = change.textDocument.uri
+              local bufnr = vim.uri_to_bufnr(uri)
+              modified_buffers[bufnr] = true
+            end
+          end
+        elseif result.changes then
+          -- Handle changes (older style)
+          for uri, _ in pairs(result.changes) do
+            local bufnr = vim.uri_to_bufnr(uri)
+            modified_buffers[bufnr] = true
+          end
+        end
+
+        -- Apply the workspace edit
         vim.lsp.util.apply_workspace_edit(result, client.offset_encoding)
 
-        -- Autosave and close affected buffers
-        for _, change in ipairs(result.changes or {}) do
-          for uri, edits in pairs(change) do
-            local bufnr = vim.uri_to_bufnr(uri)
-            if vim.api.nvim_buf_is_loaded(bufnr) then
-              vim.api.nvim_buf_call(bufnr, function()
-                vim.cmd("write")
-                vim.cmd("bdelete")
-              end)
-            end
+        -- Save and close modified buffers, except the current one
+        for bufnr, _ in pairs(modified_buffers) do
+          if vim.api.nvim_buf_is_loaded(bufnr) and bufnr ~= current_bufnr then
+            vim.api.nvim_buf_call(bufnr, function()
+              vim.cmd("silent! write") -- Silent write to avoid prompts
+              vim.cmd("silent! bdelete") -- Silent delete to avoid prompts
+            end)
+          elseif bufnr == current_bufnr then
+            -- Just save the current buffer without closing it
+            vim.api.nvim_buf_call(bufnr, function()
+              vim.cmd("silent! write")
+            end)
           end
         end
 
         vim.notify("Rename successful", vim.log.levels.INFO)
       end
 
-      -- Override the default rename handler
-      vim.lsp.handlers["textDocument/rename"] = vim.lsp.with(custom_rename_handler, {})
+      -- Set up the handler
+      vim.lsp.handlers["textDocument/rename"] = custom_rename_handler
 
       local signs = {
         Error = "",
