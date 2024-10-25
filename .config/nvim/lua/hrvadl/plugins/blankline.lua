@@ -1,19 +1,20 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
-  main = "ibl",
-  config = function()
-    local c = require("nord.colors").palette
-    local highlight = {
-      "NordBlue",
-    }
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    dependencies = {},
+    main = "ibl",
+    config = function()
+      require("ibl").setup()
+    end,
+  },
 
-    local hooks = require("ibl.hooks")
-    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-      vim.api.nvim_set_hl(0, "NordBlue", { fg = c.frost.artic_water })
-    end)
-
-    require("ibl").setup({ scope = { highlight = highlight } })
-
-    hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-  end,
+  {
+    "echasnovski/mini.indentscope",
+    version = "*",
+    config = function()
+      local indentscope = require("mini.indentscope")
+      indentscope.gen_animation.none()
+      indentscope.setup({ symbol = "|", debounce = 0 })
+    end,
+  },
 }
