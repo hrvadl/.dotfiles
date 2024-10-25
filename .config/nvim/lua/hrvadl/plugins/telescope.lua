@@ -55,11 +55,14 @@ return {
       local fb_actions = require("telescope._extensions.file_browser.actions")
 
       require("telescope").setup({
+        defaults = {
+          path_display = { "smart" },
+        },
         extensions = {
           file_browser = {
             cwd_to_path = true,
+            grouped = true,
             hidden = { file_browser = true, folder_browser = true },
-            collapse_dirs = false,
             hijack_netrw = true,
             mappings = {
               ["n"] = {
