@@ -13,6 +13,7 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"VonHeikemen/lsp-zero.nvim",
+			"zbirenbaum/copilot-cmp",
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
@@ -62,7 +63,7 @@ return {
 					{ name = "nvim_lua" },
 					{ name = "luasnip", keyword_length = 1 },
 					{ name = "buffer", keyword_length = 3 },
-					{ name = "cmp_tabnine" },
+					{ name = "copilot", group_index = 2 },
 				},
 				formatting = lsp_zero.cmp_format(),
 				mapping = {
