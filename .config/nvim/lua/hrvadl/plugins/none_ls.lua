@@ -10,12 +10,15 @@ return {
         -- JS
         null_ls.builtins.formatting.prettierd,
         -- GO
-        null_ls.builtins.diagnostics.staticcheck,
-        null_ls.builtins.formatting.golines,
-        null_ls.builtins.formatting.gofumpt,
+        --null_ls.builtins.diagnostics.staticcheck,
+        null_ls.builtins.formatting.golines.with({
+          extra_args = { "--base-formatter=gofumpt" },
+        }),
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.formatting.goimports_reviser,
-        null_ls.builtins.diagnostics.golangci_lint,
+        null_ls.builtins.diagnostics.golangci_lint.with({
+          extra_args = { "--allow-parallel-runners" },
+        }),
         -- PROTO
         null_ls.builtins.diagnostics.protolint,
       },
