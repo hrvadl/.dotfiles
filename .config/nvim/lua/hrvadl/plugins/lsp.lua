@@ -152,6 +152,7 @@ return {
 					-- "stylelint_lsp",
 					-- GO
 					"gopls",
+					"clangd",
 				},
 				handlers = {
 					lsp_zero.default_setup,
@@ -191,8 +192,7 @@ return {
 					"golangci-lint",
 					-- diagnostics.revive,
 					-- C
-					-- "clang-format",
-					-- "clang-d",
+					"clang-format",
 					-- PROTO
 					"protolint",
 				},

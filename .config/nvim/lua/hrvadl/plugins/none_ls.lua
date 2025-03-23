@@ -5,12 +5,13 @@ return {
     local null_ls = require("null-ls")
     null_ls.setup({
       sources = {
+        -- C
+        null_ls.builtins.formatting.clang_format,
         -- Lua
         null_ls.builtins.formatting.stylua,
         -- JS
         null_ls.builtins.formatting.prettierd,
         -- GO
-        --null_ls.builtins.diagnostics.staticcheck,
         null_ls.builtins.formatting.golines.with({
           extra_args = { "--base-formatter=gofumpt" },
         }),
@@ -29,7 +30,7 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format({ async = false, timeout_ms = 4000 })
+              vim.lsp.buf.format({ async = false, timeout_ms = 5000 })
             end,
           })
         end
