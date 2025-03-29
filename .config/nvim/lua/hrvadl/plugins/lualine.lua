@@ -33,6 +33,8 @@ return {
         lualine_c = {
           {
             "buffers",
+            show_filename_only = true,
+            mode = 0,
             symbols = {
               modified = " ●",
               alternate_file = "",
