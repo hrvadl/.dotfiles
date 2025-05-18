@@ -18,7 +18,8 @@ return {
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.formatting.goimports_reviser,
         null_ls.builtins.diagnostics.golangci_lint.with({
-          extra_args = { "--allow-parallel-runners" },
+          args = { "run", "--fix=false", "--show-stats=false", "--output.json.path=stdout" },
+          -- extra_args = { "--allow-parallel-runners" },
         }),
         -- PROTO
         null_ls.builtins.diagnostics.protolint,

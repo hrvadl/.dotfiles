@@ -22,9 +22,9 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason-lspconfig.nvim",
 			"jay-babu/mason-null-ls.nvim",
 		},
 		config = function()
@@ -145,6 +145,7 @@ return {
 
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
+				automatic_enable = false,
 				ensure_installed = {
 					-- Lua
 					"lua_ls",
