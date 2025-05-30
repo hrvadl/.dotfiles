@@ -363,3 +363,6 @@ if [ "$funcstack[1]" = "_devpod" ]; then
     _devpod
 fi
 
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"

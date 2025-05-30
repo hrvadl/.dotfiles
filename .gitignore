@@ -5,6 +5,7 @@ tmux-continuum
 vim-tmux-navigator
 tmux-themepack
 nord-tmux
+.netrc
 .zsh_history
 .zsh_profile_c
 .config/lazygit/state.yml
