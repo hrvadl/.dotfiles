@@ -36,7 +36,7 @@ return {
 		},
 		config = function()
 			require("mason-nvim-dap").setup({
-				ensure_installed = { "delve" },
+				ensure_installed = { "delve", "debugpy" },
 			})
 		end,
 	},
@@ -69,6 +69,13 @@ return {
 				virt_text_win_col = nil, -- position the virtual text at a fixed window column (starting from the first text column) ,
 				-- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
 			})
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap-python",
+		config = function()
+			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+			require("dap-python").setup(path)
 		end,
 	},
 	{
